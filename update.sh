@@ -6,6 +6,9 @@ DOMAIN_UPLOAD_NAME="E6qNpktkBo5a9JV.dat"
 IP_FILE_PATH="neray-ip.dat"
 IP_UPLOAD_NAME="r57s4X2nJPn1B1E.dat"
 
+SUBS_FILE_PATH="subs.conf"
+SUBS_UPLOAD_NAME="uqa1ec4mjsb2yl22hz6usqgdl034hmnp.conf"
+
 BIN_DIR="$(pwd)/bin"
 
 clean_up() {
@@ -30,11 +33,12 @@ generate_dat_files() {
    ${BIN_DIR}/geoip convert -c geoip-config.json
 }
 
-upload_dat_files() {
+upload_files() {
     local UPLOAD_PATH="home-vpn.neray.ru:/opt/www/sub.neray.ru"
 
     scp ${DOMAIN_FILE_PATH} ${UPLOAD_PATH}/${DOMAIN_UPLOAD_NAME}
     scp ${IP_FILE_PATH} ${UPLOAD_PATH}/${IP_UPLOAD_NAME}
+    scp ${SUBS_FILE_PATH} ${UPLOAD_PATH}/${SUBS_UPLOAD_NAME}
 }
 
 
@@ -43,6 +47,6 @@ install_command
 
 generate_dat_files
 
-# upload_dat_files
+upload_files
 
 clean_up
