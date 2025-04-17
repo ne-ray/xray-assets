@@ -1,11 +1,10 @@
 .idea
 .vscode
 
-/domain-list-community
-/domain-list-community.exe
+/bin
 
 # Generated dat file.
-neray.dat
+neray-*.dat
 
 # Exported plaintext lists.
 /*.txt
