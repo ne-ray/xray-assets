@@ -1,0 +1,1 @@
+[fork from](https://github.com/v2fly/domain-list-community)
