@@ -7,108 +7,206 @@
 
 <body>
     <h1>Инструкция для iOS</h1>
-    <ol>
-        <li>
-            Установите приложение <a href="https://apps.apple.com/ru/app/foxray/id6448898396" target="_blank">FoXray</a>
-        </li>
-        <li>Открыть приложение
-            <details>
-                <summary>Cогласится с правилами</summary>
-                <img src="./foxray-ios-img/privacy_policy.jpeg" width="30%"/>
-            </details>
-            <details>
-                <summary>Отключить пуши (не понятно зачем они нужны)</summary>
-                <img src="./foxray-ios-img/push.jpeg" width="30%"/>
-            </details>
-        </li>
-        <li>
-            <i>Установить ip файлы</i>
-            <a
-                href="foxray://foxray.yiguo.dev/dat/add?url=https%3A%2F%2Fsub.neray.ru%2FE6qNpktkBo5a9JV.dat&type=domain#E6qNpktkBo5a9JV">
-                Нажать 1</a> и подтвердить открытие в FoXray
-        </li>
-        <li>
-            <i>Установить domain файлы</i>
-            <a
-                href="foxray://foxray.yiguo.dev/dat/add?url=https%3A%2F%2Fsub.neray.ru%2Fr57s4X2nJPn1B1E.dat&type=ip#r57s4X2nJPn1B1E">
-                Нажать 2</a> и подтвердить открытие в FoXray
-        </li>
-        <li>
-            <i>Установить настройки роутинга</i>
-            <a
-                href="foxray://foxray.yiguo.dev/config/add?core=xray&type=setting&data=eyJuYW1lIjoiUnUtZGlyZWN0IiwidHlwZSI6InNldHRpbmciLCJsb2ciOnsiYWNjZXNzIjoiL1VzZXJzL2ltYXphZXYvTGlicmFyeS9Hcm91cCBDb250YWluZXJzLzdXQlZVWTNaNEsuZGV2LnlpZ3VvLkZvWHJheS9ydW4vYWNjZXNzLmxvZyIsImVycm9yIjoiL1VzZXJzL2ltYXphZXYvTGlicmFyeS9Hcm91cCBDb250YWluZXJzLzdXQlZVWTNaNEsuZGV2LnlpZ3VvLkZvWHJheS9ydW4vZXJyb3IubG9nIiwibG9nbGV2ZWwiOiJub25lIiwiZG5zTG9nIjpmYWxzZX0sImRucyI6eyJzZXJ2ZXJzIjpbeyJhZGRyZXNzIjoiOC44LjguOCIsInNraXBGYWxsYmFjayI6ZmFsc2UsInF1ZXJ5U3RyYXRlZ3kiOiJVc2VJUCJ9XSwicXVlcnlTdHJhdGVneSI6IlVzZUlQIiwiZGlzYWJsZUNhY2hlIjpmYWxzZSwiZGlzYWJsZUZhbGxiYWNrIjpmYWxzZSwiZGlzYWJsZUZhbGxiYWNrSWZNYXRjaCI6ZmFsc2V9LCJyb3V0aW5nIjp7ImRvbWFpblN0cmF0ZWd5IjoiSXBJZk5vbk1hdGNoIiwiZG9tYWluTWF0Y2hlciI6Imh5YnJpZCIsInJ1bGVzIjpbeyJkb21haW5NYXRjaGVyIjoiaHlicmlkIiwiaW5ib3VuZFRhZyI6WyJkbnNRdWVyeSJdLCJvdXRib3VuZFRhZyI6InByb3h5IiwicnVsZVRhZyI6ImRuc1F1ZXJ5In0seyJkb21haW5NYXRjaGVyIjoiaHlicmlkIiwicG9ydCI6IjUzIiwib3V0Ym91bmRUYWciOiJkbnNPdXQiLCJydWxlVGFnIjoiZG5zT3V0In0seyJkb21haW5NYXRjaGVyIjoiaHlicmlkIiwiaXAiOlsiZ2VvaXA6cnUiLCJnZW9pcDpwcml2YXRlIiwiZXh0OnI1N3M0WDJuSlBuMUIxRS5kYXQ6aG9tZSJdLCJvdXRib3VuZFRhZyI6ImRpcmVjdCIsInJ1bGVUYWciOiJpcCJ9LHsiZG9tYWluTWF0Y2hlciI6Imh5YnJpZCIsInByb3RvY29sIjpbImJpdHRvcnJlbnQiXSwib3V0Ym91bmRUYWciOiJkaXJlY3QiLCJydWxlVGFnIjoidG9ycmVudCJ9LHsiZG9tYWluTWF0Y2hlciI6Imh5YnJpZCIsImRvbWFpbiI6WyJnZW9zaXRlOmNuIiwiZXh0OkU2cU5wa3RrQm81YTlKVi5kYXQ6ZGlyZWN0Il0sIm91dGJvdW5kVGFnIjoiZGlyZWN0IiwicnVsZVRhZyI6ImRvbWFpbiJ9XX0sInBvbGljeSI6eyJzeXN0ZW0iOnsic3RhdHNJbmJvdW5kVXBsaW5rIjp0cnVlLCJzdGF0c0luYm91bmREb3dubGluayI6dHJ1ZSwic3RhdHNPdXRib3VuZFVwbGluayI6dHJ1ZSwic3RhdHNPdXRib3VuZERvd25saW5rIjp0cnVlfX0sImluYm91bmRzIjpbeyJsaXN0ZW4iOiJbOjoxXSIsInBvcnQiOiIwIiwicHJvdG9jb2wiOiJzb2NrcyIsInNldHRpbmdzIjp7ImF1dGgiOiJub2F1dGgiLCJ1ZHAiOnRydWV9LCJ0YWciOiJzb2Nrc0luIiwic25pZmZpbmciOnsiZW5hYmxlZCI6dHJ1ZSwiZGVzdE92ZXJyaWRlIjpbImh0dHAiLCJ0bHMiLCJxdWljIl19fV0sIm91dGJvdW5kcyI6W3sicHJvdG9jb2wiOiJmcmVlZG9tIiwidGFnIjoiZGlyZWN0In0seyJwcm90b2NvbCI6ImJsYWNraG9sZSIsInRhZyI6ImJsb2NrIn0seyJwcm90b2NvbCI6ImRucyIsInNldHRpbmdzIjp7Im5vbklQUXVlcnkiOiJza2lwIn0sInRhZyI6ImRuc091dCIsInN0cmVhbVNldHRpbmdzIjp7InNvY2tvcHQiOnsiZGlhbGVyUHJveHkiOiJkaXJlY3QifX19XSwic3RhdHMiOnt9LCJtZXRyaWNzIjp7InRhZyI6Im1ldHJpY3MiLCJsaXN0ZW4iOiJbOjoxXTowIn19#Ru-direct">
-                Нажать 3</a> и подтвердить открытие в FoXray
-        </li>
-        <li>
-            <i>Установить настройки VPN</i>
-            <a
-                href="foxray://foxray.yiguo.dev/sub/add?url=https%3A%2F%2Fsub.neray.ru%2Fuqa1ec4mjsb2yl22hz6usqgdl034hmnp.conf#sub.neray.ru">
-                Нажать 4</a> и подтвердить открытие в FoXray
-        </li>
-        <li>
-            <i>Включить правила редиректа</i>
-            <ol>
-                <li>
-                    <details>
-                        <summary>Нажать на <b>Xray setting</b></summary>
-                        <img src="./foxray-ios-img/routing_1.jpeg" width="30%"/>
-                    </details>
-                </li>
-                <li>
-                    <details>
-                        <summary>Нажать на кружок <b>Ru-direct</b> и на <b>Save</b></summary>
-                        <img src="./foxray-ios-img/routing_2.jpeg" width="30%"/>
-                    </details>
-                </li>
-            </ol>
-        </li>
-        <li>
-            <i>Запустить VPN</i>
-            <ol>
-                <li>
-                    <details>
-                        <summary>Запустить VPN</b></summary>
-                        <img src="./foxray-ios-img/vpn_start.jpeg" width="30%"/>
-                    </details>
-                </li>
-                <li>
-                    <details>
-                        <summary>Подтвердить установку VPN</summary>
-                        <img src="./foxray-ios-img/vpn_confirm.jpeg" width="30%"/>
-                    </details>
-                </li>
-            </ol>
-        </li>
-        <li>
-            Дальнейший запуск и остановку VPN можно происводить в меню настроек iOS
-            <details>
-                <summary>Запустить VPN</summary>
-                <video autoplay loop src="./foxray-ios-img/settings_start_vpn.mp4" width="30%"/>
-            </details>
-            <details>
-                <summary>Остановить VPN</summary>
-                <video autoplay loop src="./foxray-ios-img/settings_stop_vpn.mp4" width="30%"/>
-            </details>
-        </li>
-    </ol>
+    <details>
+        <summary>Раскройте</summary>
+        <ol>
+            <li>
+                Установите приложение <a href="https://apps.apple.com/ru/app/foxray/id6448898396"
+                    target="_blank">FoXray</a>
+            </li>
+            <li>Откройте приложение
+                <details>
+                    <summary>Cогласитесь с правилами</summary>
+                    <img src="./foxray-ios-img/privacy_policy.jpeg" width="30%" />
+                </details>
+                <details>
+                    <summary>Отключите пуши (не понятно зачем они нужны)</summary>
+                    <img src="./foxray-ios-img/push.jpeg" width="30%" />
+                </details>
+            </li>
+            <li>
+                Установите ip файлы
+                <a
+                    href="foxray://foxray.yiguo.dev/dat/add?url=https%3A%2F%2Fsub.neray.ru%2FE6qNpktkBo5a9JV.dat&type=domain#E6qNpktkBo5a9JV">
+                    Нажмите 1</a> и подтвердите открытие в FoXray
+            </li>
+            <li>
+                Установите domain файлы
+                <a
+                    href="foxray://foxray.yiguo.dev/dat/add?url=https%3A%2F%2Fsub.neray.ru%2Fr57s4X2nJPn1B1E.dat&type=ip#r57s4X2nJPn1B1E">
+                    Нажмите 2</a> и подтвердите открытие в FoXray
+            </li>
+            <li>
+                Установите настройки роутинга
+                <a
+                    href="foxray://foxray.yiguo.dev/config/add?core=xray&type=setting&data=eyJuYW1lIjoiUnUtZGlyZWN0IiwidHlwZSI6InNldHRpbmciLCJsb2ciOnsiYWNjZXNzIjoiL1VzZXJzL2ltYXphZXYvTGlicmFyeS9Hcm91cCBDb250YWluZXJzLzdXQlZVWTNaNEsuZGV2LnlpZ3VvLkZvWHJheS9ydW4vYWNjZXNzLmxvZyIsImVycm9yIjoiL1VzZXJzL2ltYXphZXYvTGlicmFyeS9Hcm91cCBDb250YWluZXJzLzdXQlZVWTNaNEsuZGV2LnlpZ3VvLkZvWHJheS9ydW4vZXJyb3IubG9nIiwibG9nbGV2ZWwiOiJub25lIiwiZG5zTG9nIjpmYWxzZX0sImRucyI6eyJzZXJ2ZXJzIjpbeyJhZGRyZXNzIjoiOC44LjguOCIsInNraXBGYWxsYmFjayI6ZmFsc2UsInF1ZXJ5U3RyYXRlZ3kiOiJVc2VJUCJ9XSwicXVlcnlTdHJhdGVneSI6IlVzZUlQIiwiZGlzYWJsZUNhY2hlIjpmYWxzZSwiZGlzYWJsZUZhbGxiYWNrIjpmYWxzZSwiZGlzYWJsZUZhbGxiYWNrSWZNYXRjaCI6ZmFsc2V9LCJyb3V0aW5nIjp7ImRvbWFpblN0cmF0ZWd5IjoiSXBJZk5vbk1hdGNoIiwiZG9tYWluTWF0Y2hlciI6Imh5YnJpZCIsInJ1bGVzIjpbeyJkb21haW5NYXRjaGVyIjoiaHlicmlkIiwiaW5ib3VuZFRhZyI6WyJkbnNRdWVyeSJdLCJvdXRib3VuZFRhZyI6InByb3h5IiwicnVsZVRhZyI6ImRuc1F1ZXJ5In0seyJkb21haW5NYXRjaGVyIjoiaHlicmlkIiwicG9ydCI6IjUzIiwib3V0Ym91bmRUYWciOiJkbnNPdXQiLCJydWxlVGFnIjoiZG5zT3V0In0seyJkb21haW5NYXRjaGVyIjoiaHlicmlkIiwiaXAiOlsiZ2VvaXA6cnUiLCJnZW9pcDpwcml2YXRlIiwiZXh0OnI1N3M0WDJuSlBuMUIxRS5kYXQ6aG9tZSJdLCJvdXRib3VuZFRhZyI6ImRpcmVjdCIsInJ1bGVUYWciOiJpcCJ9LHsiZG9tYWluTWF0Y2hlciI6Imh5YnJpZCIsInByb3RvY29sIjpbImJpdHRvcnJlbnQiXSwib3V0Ym91bmRUYWciOiJkaXJlY3QiLCJydWxlVGFnIjoidG9ycmVudCJ9LHsiZG9tYWluTWF0Y2hlciI6Imh5YnJpZCIsImRvbWFpbiI6WyJnZW9zaXRlOmNuIiwiZXh0OkU2cU5wa3RrQm81YTlKVi5kYXQ6ZGlyZWN0Il0sIm91dGJvdW5kVGFnIjoiZGlyZWN0IiwicnVsZVRhZyI6ImRvbWFpbiJ9XX0sInBvbGljeSI6eyJzeXN0ZW0iOnsic3RhdHNJbmJvdW5kVXBsaW5rIjp0cnVlLCJzdGF0c0luYm91bmREb3dubGluayI6dHJ1ZSwic3RhdHNPdXRib3VuZFVwbGluayI6dHJ1ZSwic3RhdHNPdXRib3VuZERvd25saW5rIjp0cnVlfX0sImluYm91bmRzIjpbeyJsaXN0ZW4iOiJbOjoxXSIsInBvcnQiOiIwIiwicHJvdG9jb2wiOiJzb2NrcyIsInNldHRpbmdzIjp7ImF1dGgiOiJub2F1dGgiLCJ1ZHAiOnRydWV9LCJ0YWciOiJzb2Nrc0luIiwic25pZmZpbmciOnsiZW5hYmxlZCI6dHJ1ZSwiZGVzdE92ZXJyaWRlIjpbImh0dHAiLCJ0bHMiLCJxdWljIl19fV0sIm91dGJvdW5kcyI6W3sicHJvdG9jb2wiOiJmcmVlZG9tIiwidGFnIjoiZGlyZWN0In0seyJwcm90b2NvbCI6ImJsYWNraG9sZSIsInRhZyI6ImJsb2NrIn0seyJwcm90b2NvbCI6ImRucyIsInNldHRpbmdzIjp7Im5vbklQUXVlcnkiOiJza2lwIn0sInRhZyI6ImRuc091dCIsInN0cmVhbVNldHRpbmdzIjp7InNvY2tvcHQiOnsiZGlhbGVyUHJveHkiOiJkaXJlY3QifX19XSwic3RhdHMiOnt9LCJtZXRyaWNzIjp7InRhZyI6Im1ldHJpY3MiLCJsaXN0ZW4iOiJbOjoxXTowIn19#Ru-direct">
+                    Нажмите 3</a> и подтвердите открытие в FoXray
+            </li>
+            <li>
+                Установите настройки VPN
+                <a
+                    href="foxray://foxray.yiguo.dev/sub/add?url=https%3A%2F%2Fsub.neray.ru%2Fuqa1ec4mjsb2yl22hz6usqgdl034hmnp.conf#sub.neray.ru">
+                    Нажмите 4</a> и подтвердите открытие в FoXray
+            </li>
+            <li>
+                Включите правила редиректа
+                <ol>
+                    <li>
+                        <details>
+                            <summary>Нажмите на <b>Xray setting</b></summary>
+                            <img src="./foxray-ios-img/routing_1.jpeg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Нажмите на кружок <b>Ru-direct</b> и на <b>Save</b></summary>
+                            <img src="./foxray-ios-img/routing_2.jpeg" width="30%" />
+                        </details>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Установка и первый запуск VPN
+                <ol>
+                    <li>
+                        <details>
+                            <summary>Запустите VPN</summary>
+                            <img src="./foxray-ios-img/vpn_start.jpeg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Подтвердите установку VPN</summary>
+                            <img src="./foxray-ios-img/vpn_confirm.jpeg" width="30%" />
+                        </details>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Дальнейший запуск и остановку VPN можно производить в меню настроек iOS
+                <details>
+                    <summary>Запустить VPN</summary>
+                    <video autoplay loop src="./foxray-ios-img/settings_start_vpn.mp4" width="30%" />
+                </details>
+                <details>
+                    <summary>Остановить VPN</summary>
+                    <video autoplay loop src="./foxray-ios-img/settings_stop_vpn.mp4" width="30%" />
+                </details>
+            </li>
+        </ol>
+    </details>
 
     <h1>Инструкция для Android</h1>
-    <ol>
-        <li>
-            Установите приложение <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang&hl=ru"
-                target="_blank">v2rayNG</a>
-        </li>
-        <li>
-            Скачайте файл с <a href="./doKrbqQ3QsdIJlDd.zip" target="_blank">конфигурацией</a> и установитие его (видос
-            куда заходить)
-        </li>
-        <li>
-            Видос как загрузить файлы assets
-        </li>
-        <li>
-            Нажимаем play - разрешаем установить VPN и теперь VPN работает
-        </li>
-    </ol>
+    <details>
+        <summary>Раскройте</summary>
+        <ol>
+            <li>
+                Установите приложение <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang&hl=ru"
+                    target="_blank">v2rayNG</a>
+            </li>
+            <li>
+                Скачайте файл с <a href="./doKrbqQ3QsdIJlDd.zip" target="_blank">конфигурацией</a>
+            </li>
+            <li>
+                Загрузка файла конфигурации в VPN
+                <ol>
+                    <li>
+                        <details>
+                            <summary>Запустите приложение <b>v2rayNG</b> и вызовите боковое меню</summary>
+                            <img src="./v2ray-ng-img/first_screen.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Выберите <b>О приложении</b></summary>
+                            <img src="./v2ray-ng-img/select_about_at.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Выберите <b>Восстановление конфигурации</b></summary>
+                            <img src="./v2ray-ng-img/restore_settings.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Разрешите доступ к файлам (возможно окошко будет выглядеть по-другому)</summary>
+                            <img src="./v2ray-ng-img/confirm_access_to_files.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Выберите файл скаченный ранее (возможно окошко будет выглядеть по-другому)</summary>
+                            <img src="./v2ray-ng-img/select_files.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Посмотрите на сообщение с успешной загрузкой конфигурации</summary>
+                            <img src="./v2ray-ng-img/restore_success.jpg" width="30%" />
+                        </details>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Загрузка ip и domain файлов
+                <ol>
+                    <li>
+                        <details>
+                            <summary>Вызовите боковое меню</summary>
+                            <img src="./v2ray-ng-img/tap_menu.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Выберите пунт меню <b>Файлы ресурсов</b></summary>
+                            <img src="./v2ray-ng-img/select_assets.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Нажмите на значок загрузки в вверхней части экрана</summary>
+                            <img src="./v2ray-ng-img/tap_download_assets.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Проверьте, что у двух нижних файлов появилась дополнительная информация</summary>
+                            <img src="./v2ray-ng-img/download_assets_chech.jpg" width="30%" />
+                        </details>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Установка и первый запуск VPN
+                <ol>
+                    <li>
+                        <details>
+                            <summary>Запустите VPN</summary>
+                            <img src="./v2ray-ng-img/start_vpn.jpg" width="30%" />
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Разрешите установку VPN (возможно окошко будет выглядеть по-другому)</summary>
+                            <img src="./v2ray-ng-img/confirm_install_vpn.jpg" width="30%" />
+                        </details>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Дальнейший запуск и остановку VPN необходимо выполнять из приложения v2rayNG
+                <details>
+                    <summary>Запустить VPN</summary>
+                    <video autoplay loop src="./v2ray-ng-img/start_vpn.mp4" width="30%" />
+                </details>
+                <details>
+                    <summary>Остановить VPN</summary>
+                    <video autoplay loop src="./v2ray-ng-img/stop_vpn.mp4" width="30%" />
+                </details>
+            </li>
+        </ol>
+    </details>
 </body>
 
 </html>

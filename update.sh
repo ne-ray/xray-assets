@@ -48,6 +48,7 @@ upload_files() {
     scp ${INSTALL_GUIDE_FILE_PATH} ${UPLOAD_PATH}/${INSTALL_GUIDE_UPLOAD_NAME}
     scp ${V2RAYNG_FILE_PATH} ${UPLOAD_PATH}/${V2RAYNG_UPLOAD_NAME}
     scp -r foxray-ios-img ${UPLOAD_PATH}/
+    scp -r v2ray-ng-img ${UPLOAD_PATH}/
     scp foxray-redirect.html ${UPLOAD_PATH}/foxray-redirect.html
 }
 
