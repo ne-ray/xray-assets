@@ -2,6 +2,8 @@
 .vscode
 
 /bin
+/build_linux
+/source_ruleset
 
 # Generated dat file.
 neray-*.dat
