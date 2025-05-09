@@ -1,33 +1,43 @@
 #!/bin/bash
 
-DOMAIN_FILE_PATH="neray-domain.dat"
-DOMAIN_UPLOAD_NAME="E6qNpktkBo5a9JV.dat"
-DOMAIN_FULL_FILE_PATH="neray-domain-full.dat"
-DOMAIN_FULL_UPLOAD_NAME="E6qNpktkBo5a9JV_full.dat"
+export CURRENT_DIR=$(dirname "$(realpath $0)")
+export CURRENT_DIR_RELATIVE="$(perl -le 'use File::Spec; print File::Spec->abs2rel(@ARGV)' $(dirname $0) $(pwd))"
 
-IP_FILE_PATH="neray-ip.dat"
-IP_UPLOAD_NAME="r57s4X2nJPn1B1E.dat"
-IP_FULL_FILE_PATH="neray-ip-full.dat"
-IP_FULL_UPLOAD_NAME="r57s4X2nJPn1B1E_full.dat"
+export DOMAIN_FILE_NAME="neray-domain.dat"
+export DOMAIN_FILE_PATH="${CURRENT_DIR}/${DOMAIN_FILE_NAME}"
+export DOMAIN_FILE_PATH_RELATIVE="${CURRENT_DIR_RELATIVE}/${DOMAIN_FILE_NAME}"
+export DOMAIN_UPLOAD_NAME="E6qNpktkBo5a9JV.dat"
+export DOMAIN_FULL_FILE_NAME="neray-domain-full.dat"
+export DOMAIN_FULL_FILE_PATH="${CURRENT_DIR}/${DOMAIN_FULL_FILE_NAME}"
+export DOMAIN_FULL_FILE_PATH_RELATIVE="${CURRENT_DIR_RELATIVE}/${DOMAIN_FULL_FILE_NAME}"
+export DOMAIN_FULL_UPLOAD_NAME="E6qNpktkBo5a9JV_full.dat"
 
-SUBS_FILE_PATH="subs.conf"
-SUBS_UPLOAD_NAME="uqa1ec4mjsb2yl22hz6usqgdl034hmnp.conf"
+export IP_FILE_NAME="neray-ip.dat"
+export IP_FILE_PATH="${CURRENT_DIR}/${IP_FILE_NAME}"
+export IP_UPLOAD_NAME="r57s4X2nJPn1B1E.dat"
+export IP_FULL_FILE_NAME="neray-ip-full.dat"
+export IP_FULL_FILE_PATH="${CURRENT_DIR}/${IP_FULL_FILE_NAME}"
+export IP_FULL_UPLOAD_NAME="r57s4X2nJPn1B1E_full.dat"
 
-INSTALL_GUIDE_FILE_PATH="vpn-install.html"
-INSTALL_GUIDE_UPLOAD_NAME="bXqAwOoSWFp2YZZe.html"
+export SUBS_FILE_PATH="${CURRENT_DIR}/subs.conf"
+export SUBS_UPLOAD_NAME="uqa1ec4mjsb2yl22hz6usqgdl034hmnp.conf"
 
-V2RAYNG_FILE_PATH="v2rayNG.zip"
-V2RAYNG_UPLOAD_NAME="doKrbqQ3QsdIJlDd.zip"
+export INSTALL_GUIDE_FILE_PATH="${CURRENT_DIR}/vpn-install.html"
+export INSTALL_GUIDE_UPLOAD_NAME="bXqAwOoSWFp2YZZe.html"
 
-BIN_DIR="$(pwd)/bin"
-BUILD_LINUX_DIR="$(pwd)/build_linux"
-BIN_LINUX_DIR="${BUILD_LINUX_DIR}/bin/linux_amd64"
+export V2RAYNG_FILE_PATH="${CURRENT_DIR}/v2rayNG.zip"
+export V2RAYNG_UPLOAD_NAME="doKrbqQ3QsdIJlDd.zip"
 
-RULESET_DIR="$(pwd)/source_ruleset"
-RULESET_DLC_DIR="${RULESET_DIR}/dlc"
+export BIN_DIR="${CURRENT_DIR}/bin"
+export BUILD_LINUX_DIR="${CURRENT_DIR}/build_linux"
+export BIN_LINUX_DIR="${BUILD_LINUX_DIR}/bin/linux_amd64"
 
-RULESET_SOURCE_GEOIP_DIR="./data-ip"
-RULESET_SOURCE_GEOSITE_DIR="./data-domain"
+export RULESET_DIR="${CURRENT_DIR}/source_ruleset"
+export RULESET_DLC_DIR="${RULESET_DIR}/dlc"
+export RULESET_GEOIP_PATH="${RULESET_DIR}/geoip.dat"
+
+export RULESET_SOURCE_GEOIP_DIR="${CURRENT_DIR}/data-ip"
+export RULESET_SOURCE_GEOSITE_DIR="${CURRENT_DIR}/data-domain"
 
 UPLOAD_SCP_HOSTNAME="home-vpn.neray.ru:"
 UPLOAD_WWW_PATH="/opt/www/sub.neray.ru"
@@ -48,6 +58,10 @@ clean_up() {
 
     if [[ -f ${IP_FULL_FILE_PATH} ]]; then
         rm ${IP_FULL_FILE_PATH}
+    fi
+
+    if ls ${CURRENT_DIR}/autogen-*-config.json 1> /dev/null 2>&1; then
+        rm ${CURRENT_DIR}/autogen-*-config.json
     fi
 
     if [[ -d "${BUILD_LINUX_DIR}/pkg" ]]; then
@@ -73,23 +87,37 @@ install_commands_linux() {
     fi
 }
 
+autogen_geoip_config() {
+    local FILENAME=$1
+    local FILEPATH="${CURRENT_DIR}/$FILENAME"
+    local AUTOGENFILEPATH="${CURRENT_DIR}/autogen-${FILENAME}"
+
+    echo $(envsubst < ${FILEPATH}) > ${AUTOGENFILEPATH}
+}
+
 ruleset_ext_generate() {
+    local GEOIP_CONFIG="geoip-ext-config.json"
+
     cp ${RULESET_SOURCE_GEOSITE_DIR}/proxy-neray-ru ${RULESET_SOURCE_GEOSITE_DIR}/direct
-    ${BIN_DIR}/domain-list-community --outputname=${DOMAIN_FILE_PATH} --datapath=${RULESET_SOURCE_GEOSITE_DIR}
+    ${BIN_DIR}/domain-list-community --outputname=${DOMAIN_FILE_PATH_RELATIVE} --datapath=${RULESET_SOURCE_GEOSITE_DIR}
     rm ${RULESET_SOURCE_GEOSITE_DIR}/direct
-    ${BIN_DIR}/geoip convert -c geoip-ext-config.json
+    autogen_geoip_config $GEOIP_CONFIG
+    ${BIN_DIR}/geoip convert -c ${CURRENT_DIR}/autogen-${GEOIP_CONFIG}
 }
 
 ruleset_full_download() {
     mkdir ${RULESET_DIR}
     git clone --depth 1 https://github.com/v2fly/domain-list-community.git ${RULESET_DLC_DIR}
-    wget https://github.com/v2fly/geoip/releases/latest/download/geoip.dat -O ${RULESET_DIR}/geoip.dat
+    wget https://github.com/v2fly/geoip/releases/latest/download/geoip.dat -O ${RULESET_GEOIP_PATH}
 }
 
 ruleset_full_generate() {
+    local GEOIP_CONFIG="geoip-full-config.json"
+
     cp ${RULESET_SOURCE_GEOSITE_DIR}/* ${RULESET_DLC_DIR}/data/
-    ${BIN_DIR}/domain-list-community --outputname=${DOMAIN_FULL_FILE_PATH} --datapath=${RULESET_DLC_DIR}/data
-    ${BIN_DIR}/geoip convert -c geoip-full-config.json
+    ${BIN_DIR}/domain-list-community --outputname=${DOMAIN_FULL_FILE_PATH_RELATIVE} --datapath=${RULESET_DLC_DIR}/data
+    autogen_geoip_config $GEOIP_CONFIG
+    ${BIN_DIR}/geoip convert -c ${CURRENT_DIR}/autogen-${GEOIP_CONFIG}
 }
 
 scp_upload() {
@@ -99,9 +127,9 @@ scp_upload() {
 upload_guide() {
     $1 ${INSTALL_GUIDE_FILE_PATH} $2${UPLOAD_WWW_PATH}/${INSTALL_GUIDE_UPLOAD_NAME}
     $1 ${V2RAYNG_FILE_PATH} $2${UPLOAD_WWW_PATH}/${V2RAYNG_UPLOAD_NAME}
-    $1 -r foxray-ios-img $2${UPLOAD_WWW_PATH}/
-    $1 -r v2ray-ng-img $2${UPLOAD_WWW_PATH}/
-    $1 foxray-redirect.html $2${UPLOAD_WWW_PATH}/foxray-redirect.html
+    $1 -r ${CURRENT_DIR}/foxray-ios-img $2${UPLOAD_WWW_PATH}/
+    $1 -r ${CURRENT_DIR}/v2ray-ng-img $2${UPLOAD_WWW_PATH}/
+    $1 ${CURRENT_DIR}/foxray-redirect.html $2${UPLOAD_WWW_PATH}/foxray-redirect.html
 }
 
 upload_subs() {
@@ -121,7 +149,7 @@ upload_ruleset_full() {
 upload_ruleset_source() {
     $1 -r ${RULESET_SOURCE_GEOSITE_DIR} $2${UPLOAD_AUTOUPDATE_PATH}
     $1 -r ${RULESET_SOURCE_GEOIP_DIR} $2${UPLOAD_AUTOUPDATE_PATH}
-    $1 geoip-*-config.json $2${UPLOAD_AUTOUPDATE_PATH}/
+    $1 ${CURRENT_DIR}/geoip-*-config.json $2${UPLOAD_AUTOUPDATE_PATH}/
 }
 
 ##############################
@@ -152,7 +180,7 @@ scp_upload_www_full() {
 
 scp_autoupdate_full() {
     scp ${BUILD_LINUX_DIR}/bin/linux_amd64/* ${UPLOAD_SCP_HOSTNAME}${UPLOAD_AUTOUPDATE_PATH}/bin
-    scp ./update.sh ${UPLOAD_SCP_HOSTNAME}${UPLOAD_AUTOUPDATE_PATH}
+    scp ${CURRENT_DIR}/update.sh ${UPLOAD_SCP_HOSTNAME}${UPLOAD_AUTOUPDATE_PATH}
     scp_upload "upload_ruleset_source"
 }
 

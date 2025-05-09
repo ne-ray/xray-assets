@@ -4,8 +4,7 @@
             "type": "text",
             "action": "add",
             "args": {
-                "name": "home",
-                "uri": "./data-ip/home"
+                "inputDir": "${RULESET_SOURCE_GEOIP_DIR}/"
             }
         }
     ],
@@ -14,8 +13,8 @@
             "type": "v2rayGeoIPDat",
             "action": "output",
             "args": {
-                "outputDir": "./",
-                "outputName": "neray-ip.dat"
+                "outputDir": "${CURRENT_DIR}",
+                "outputName": "${IP_FILE_NAME}"
             }
         }
     ]
